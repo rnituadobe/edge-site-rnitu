@@ -164,6 +164,12 @@
       "multi": true,
       "fields": [
         {
+        "component": "text",
+        "name": "linkTitle",
+        "label": "Title",
+        "required": true
+        },
+        {
           "component": "reference",
           "valueType": "string",
           "name": "image",
