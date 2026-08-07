@@ -172,12 +172,6 @@
           "multi": false
         },
         {
-        "component": "text",
-        "name": "linkTitle",
-        "label": "Title",
-        "required": true
-        },
-        {
           "component": "richtext",
           "name": "text",
           "value": "",
