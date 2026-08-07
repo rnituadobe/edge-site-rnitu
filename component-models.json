@@ -171,6 +171,30 @@
         "label": "Text",
         "valueType": "string",
         "required": true
+      },
+      {
+        "component": "container",
+        "name": "items",
+        "label": "Items",
+        "valueType": "string",
+        "multi": true,
+        "fields": [
+          {
+            "component": "text",
+            "name": "itemText",
+            "label": "Item text",
+            "required": true,
+            "valueType": "string"
+          },
+          {
+            "component": "reference",
+            "name": "itemImage",
+            "label": "Item image",
+            "valueType": "string",
+            "required": true,
+            "multi": false
+          }
+        ]
       }
     ]
   },
