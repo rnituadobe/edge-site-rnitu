@@ -168,13 +168,21 @@
           "valueType": "string",
           "name": "image",
           "label": "Image",
+          "required": true,
           "multi": false
+        },
+        {
+        "component": "text",
+        "name": "linkTitle",
+        "label": "Title",
+        "required": true
         },
         {
           "component": "richtext",
           "name": "text",
           "value": "",
           "label": "Text",
+          "required": true,
           "valueType": "string"
         }
       ]
