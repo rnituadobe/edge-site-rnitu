@@ -62,22 +62,26 @@
       {
         "component": "aem-content",
         "name": "link",
-        "label": "Link"
+        "label": "Link",
+        "required": true
       },
       {
         "component": "text",
         "name": "linkText",
-        "label": "Text"
+        "label": "Text",
+        "required": true
       },
       {
         "component": "text",
         "name": "linkTitle",
-        "label": "Title"
+        "label": "Title",
+        "required": true
       },
       {
         "component": "select",
         "name": "linkType",
         "label": "Type",
+        "required": true,
         "options": [
           {
             "name": "default",
@@ -150,48 +154,43 @@
     ]
   },
   {
-    "id": "aide-repro",
-    "fields": [
-      {
-        "component": "text-input",
-        "name": "title",
-        "label": "Title",
-        "value": "AIDE reproduction",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "aide-repro-item",
-    "fields": [
-      {
-        "component": "text-input",
-        "name": "title",
-        "label": "Item title",
-        "value": "Test item",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "card",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
+  "id": "card",
+  "fields": [
+    {
+      "component": "container",
+      "name": "items",
+      "label": "Items",
+      "valueType": "string",
+      "multi": true,
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title",
+          "value": "",
+          "valueType": "string",
+          "required": true
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "required": true,
+          "multi": false
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string",
+          "required": true
+        }
+      ]
+    }
+  ]
+},
   {
     "id": "columns",
     "fields": [
@@ -415,6 +414,17 @@
       }
     ]
   },
+  {
+  "id": "content-fragment-block",
+  "fields": [
+    {
+      "component": "aem-content-fragment",
+      "name": "reference",
+      "label": "Content Fragment",
+      "valueType": "string"
+    }
+  ]
+},
   {
     "id": "hero",
     "fields": [

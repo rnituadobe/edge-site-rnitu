@@ -22,8 +22,8 @@
       "cards",
       "columns",
       "fragment",
+      "content-fragment-block",
       "product-teaser",
-      "aide-repro",
       "product-recommendations"
     ]
   },
@@ -384,12 +384,6 @@
       "columns",
       "fragment",
       "commerce-wishlist"
-    ]
-  },
-  {
-    "id": "aide-repro",
-    "components": [
-      "aide-repro-item"
     ]
   },
   {
