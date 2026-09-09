@@ -1,0 +1,24 @@
+.block.aide-repro {
+  border: 2px solid #d97706;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.aide-repro-title {
+  margin: 0 0 12px;
+}
+
+.aide-repro-items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.aide-repro-items > li {
+  border: 1px dashed #999;
+  padding: 8px;
+  flex: 1 1 200px;
+}

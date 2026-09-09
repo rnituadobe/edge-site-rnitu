@@ -45,6 +45,9 @@
         },
         {
           "...": "../blocks/content-fragment/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/aide-repro/_*.json#/definitions"
         }
       ]
     },

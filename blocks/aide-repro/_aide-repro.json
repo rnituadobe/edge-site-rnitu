@@ -1,0 +1,70 @@
+{
+  "definitions": [
+    {
+      "title": "Aide Repro",
+      "id": "aide-repro",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Aide Repro",
+              "model": "aide-repro",
+              "filter": "aide-repro"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Aide Repro Item",
+      "id": "aide-repro-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Aide Repro Item",
+              "model": "aide-repro-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "aide-repro",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "id": "aide-repro-item",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title"
+        },
+        {
+          "component": "richtext",
+          "name": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "aide-repro",
+      "components": [
+        "aide-repro-item"
+      ]
+    }
+  ]
+}

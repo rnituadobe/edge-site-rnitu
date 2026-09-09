@@ -831,5 +831,30 @@
         "readOnly": true
       }
     ]
+  },
+  {
+    "id": "aide-repro",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      }
+    ]
+  },
+  {
+    "id": "aide-repro-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description"
+      }
+    ]
   }
 ]
