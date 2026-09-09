@@ -10,8 +10,8 @@
 
 .aide-repro-items {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin: 0;
   padding: 0;
@@ -20,5 +20,4 @@
 .aide-repro-items > li {
   border: 1px dashed #999;
   padding: 8px;
-  flex: 1 1 200px;
 }
