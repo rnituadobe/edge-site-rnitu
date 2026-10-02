@@ -233,6 +233,18 @@
     ]
   },
   {
+  "id": "rich-text",
+  "fields": [
+    {
+      "component": "richtext",
+      "name": "text",
+      "label": "Content",
+      "valueType": "string",
+      "value": ""
+    }
+  ]
+},
+  {
     "id": "commerce-cart",
     "fields": [
       {
