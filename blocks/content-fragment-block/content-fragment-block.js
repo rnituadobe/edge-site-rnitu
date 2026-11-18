@@ -1,5 +1,38 @@
 const CONNECTION = 'aem-fragments';
 
+function getAuthor(block) {
+  const prefix = 'urn:adobe:aue:system:';
+  const systems = [...document.querySelectorAll(`meta[name^="${prefix}"]`)];
+  let connection = systems.find((meta) => meta.name === `${prefix}${CONNECTION}`);
+  if (!connection) {
+    const resource = block.getAttribute('data-aue-resource');
+    const name = resource?.match(/^urn:([^:]+):/)?.[1];
+    const active = systems.find((meta) => meta.name === `${prefix}${name}`);
+    let author;
+    if (active) {
+      if (!/^(aem|xwalk):https:\/\//.test(active.content)) {
+        throw new Error('The active page author connection is invalid.');
+      }
+      author = new URL(active.content.slice(active.content.indexOf(':') + 1));
+    } else {
+      author = new URL(document.location.href);
+      if (author.protocol !== 'https:'
+        || !/^author-p\d+-e\d+\.adobeaemcloud\.com$/.test(author.hostname)) {
+        throw new Error('The page does not provide an AEM Author connection.');
+      }
+    }
+
+    connection = document.createElement('meta');
+    connection.name = `${prefix}${CONNECTION}`;
+    connection.content = `aem:${author.origin}`;
+    document.head.append(connection);
+  }
+  if (!connection.content.startsWith('aem:https://')) {
+    throw new Error('The AEM Content Fragment author connection is invalid.');
+  }
+  return new URL(connection.content.slice('aem:'.length));
+}
+
 export default function decorate(block) {
   if (!block.hasAttribute('data-aue-resource')) {
     block.hidden = true;
@@ -17,12 +50,7 @@ export default function decorate(block) {
   }
 
   try {
-    const connection = document.querySelector(`meta[name="urn:adobe:aue:system:${CONNECTION}"]`);
-    if (!connection?.content.startsWith('aem:https://')) {
-      throw new Error('The AEM Content Fragment author connection is missing or invalid.');
-    }
-
-    const author = new URL(connection.content.slice('aem:'.length));
+    const author = getAuthor(block);
     const fragment = new URL(reference, author);
     const path = decodeURIComponent(fragment.pathname);
     if (fragment.origin !== author.origin || !path.startsWith('/content/dam/')

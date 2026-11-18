@@ -11,10 +11,12 @@ panel. It does not render fragment field values on the public site.
   `reference` property stores its `/content/dam/...` path.
 - Select the inner **Content Fragment fields** card, either in the canvas or
   the content tree. The outer block retains the picker for changing references.
-- The `aem-fragments` connection in `head.html` points at
-  `https://author-p167205-e1910614.adobeaemcloud.com`. Update it if this site
-  moves to another Author environment. Authors need an authenticated AEM session
-  and permission to edit the fragment.
+- The block registers an `aem-fragments` connection using the active page's AEM
+  or Crosswalk connection. On an AEM Cloud Author page without connection
+  metadata, it uses that page's Author origin. It does not depend on `head.html`,
+  which is not guaranteed to be included in the Author-rendered page. An existing
+  explicit `aem-fragments` connection is respected. Authors need an authenticated
+  AEM session and permission to edit the fragment.
 - The inner resource targets the fragment's `jcr:content/data/master` variation.
   Universal Editor obtains the fragment model and performs persistence; this
   block defines no duplicate field model and sends no API write requests.
