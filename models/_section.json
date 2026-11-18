@@ -92,6 +92,7 @@
       "id": "section",
       "components": [
         {"...": "./_common-blocks.json"},
+        "content-fragment-block",
         "product-teaser",
         "product-recommendations"
       ]

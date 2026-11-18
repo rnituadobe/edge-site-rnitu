@@ -44,7 +44,7 @@
           "...": "../blocks/hero/_*.json#/definitions"
         },
         {
-          "...": "../blocks/content-fragment/_*.json#/definitions"
+          "...": "../blocks/content-fragment-block/_*.json#/definitions"
         },
         {
           "...": "../blocks/aide-repro/_*.json#/definitions"
