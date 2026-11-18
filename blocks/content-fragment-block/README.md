@@ -9,6 +9,8 @@ panel. It does not render fragment field values on the public site.
 - Add **Content Fragment Block** to a normal page section in Universal Editor.
 - Select a disposable fragment with the **Content Fragment** picker. The
   `reference` property stores its `/content/dam/...` path.
+- The renderer removes an authoring `.html` suffix from the selected URL before
+  constructing the fragment resource URN; it does not change the stored reference.
 - Select the inner **Content Fragment fields** card, either in the canvas or
   the content tree. The outer block retains the picker for changing references.
 - The block registers an `aem-fragments` connection using the active page's AEM

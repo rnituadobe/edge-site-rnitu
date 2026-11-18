@@ -52,7 +52,8 @@ export default function decorate(block) {
   try {
     const author = getAuthor(block);
     const fragment = new URL(reference, author);
-    const path = decodeURIComponent(fragment.pathname);
+    // Picker links can be externalized as .html URLs; URNs need the DAM resource path.
+    const path = decodeURIComponent(fragment.pathname).replace(/\.html$/, '');
     if (fragment.origin !== author.origin || !path.startsWith('/content/dam/')
       || path.endsWith('/') || fragment.search || fragment.hash) {
       throw new Error('Select a Content Fragment under /content/dam on the configured Author.');

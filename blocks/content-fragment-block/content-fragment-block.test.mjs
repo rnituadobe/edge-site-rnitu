@@ -65,6 +65,20 @@ test('accepts a picker link on the configured Author and decodes its path', () =
   assert.equal(block.children[0].dataset.aueResource, 'urn:aem-fragments:/content/dam/test/my fragment/jcr:content/data/master');
 });
 
+test('removes the authoring HTML suffix from picker links before targeting the fragment', () => {
+  const block = fixture(`${AUTHOR}/content/dam/test/checkboxes.html`, { link: true });
+  decorate(block);
+  const [card] = block.children;
+  assert.equal(card.dataset.aueResource, 'urn:aem-fragments:/content/dam/test/checkboxes/jcr:content/data/master');
+  assert.equal(card.children[2].textContent, '/content/dam/test/checkboxes');
+});
+
+test('normalizes only a terminal HTML suffix, not dots in the fragment path', () => {
+  const block = fixture('/content/dam/folder.html/checkboxes.html-copy.html', { link: true });
+  decorate(block);
+  assert.equal(block.children[0].dataset.aueResource, 'urn:aem-fragments:/content/dam/folder.html/checkboxes.html-copy/jcr:content/data/master');
+});
+
 test('registers the fragment connection from the active Crosswalk connection without head.html', () => {
   const block = fixture('/content/dam/test/checkboxes', {
     connection: null,
